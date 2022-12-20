@@ -1,4 +1,5 @@
 using Cymax.Web.BusinessService.Parcel;
+using Cymax.Web.BusinessService.Services;
 using Cymax.Web.DataAccess;
 using Cymax.Web.Models;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,25 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer());
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("appDbContext"));
+
+
+
+builder.Services.AddTransient<FirstService>();
+builder.Services.AddTransient<SecondService>();
+builder.Services.AddTransient<ThirsService>();
+
+builder.Services.AddTransient<Func<string, IService>>(serviceProvider => key =>
+{
+
+    return key switch
+    {
+        "Amazon" => serviceProvider.GetService<SecondService>(),
+        "Microsoft" => serviceProvider.GetService<SecondService>(),
+        "Ebay" => serviceProvider.GetService<SecondService>(),
+        _ => serviceProvider.GetService<SecondService>()
+    };
+
+});
 
 var app = builder.Build();
 

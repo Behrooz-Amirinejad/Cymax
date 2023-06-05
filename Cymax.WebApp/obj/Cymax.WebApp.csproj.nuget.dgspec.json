@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DELETE\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj": {}
+    "D:\\Assessment  Code\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\DELETE\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj": {
+    "D:\\Assessment  Code\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DELETE\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj",
+        "projectUniqueName": "D:\\Assessment  Code\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj",
         "projectName": "Cymax.WebApp",
-        "projectPath": "C:\\DELETE\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj",
-        "packagesPath": "C:\\Users\\bamirnejad\\.nuget\\packages\\",
-        "outputPath": "C:\\DELETE\\Cymax\\Cymax.WebApp\\obj\\",
+        "projectPath": "D:\\Assessment  Code\\Cymax\\Cymax.WebApp\\Cymax.WebApp.csproj",
+        "packagesPath": "C:\\Users\\Behrooz\\.nuget\\packages\\",
+        "outputPath": "D:\\Assessment  Code\\Cymax\\Cymax.WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bamirnejad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Behrooz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,9 +41,37 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.13, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -68,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

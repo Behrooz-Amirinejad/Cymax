@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DELETE\\Cymax\\Cymax.Web\\Cymax.Web.csproj": {}
+    "D:\\Assessment  Code\\Cymax\\Cymax.Web\\Cymax.Web.csproj": {}
   },
   "projects": {
-    "C:\\DELETE\\Cymax\\Cymax.Web\\Cymax.Web.csproj": {
+    "D:\\Assessment  Code\\Cymax\\Cymax.Web\\Cymax.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DELETE\\Cymax\\Cymax.Web\\Cymax.Web.csproj",
+        "projectUniqueName": "D:\\Assessment  Code\\Cymax\\Cymax.Web\\Cymax.Web.csproj",
         "projectName": "Cymax.Web",
-        "projectPath": "C:\\DELETE\\Cymax\\Cymax.Web\\Cymax.Web.csproj",
-        "packagesPath": "C:\\Users\\bamirnejad\\.nuget\\packages\\",
-        "outputPath": "C:\\DELETE\\Cymax\\Cymax.Web\\obj\\",
+        "projectPath": "D:\\Assessment  Code\\Cymax\\Cymax.Web\\Cymax.Web.csproj",
+        "packagesPath": "C:\\Users\\Behrooz\\.nuget\\packages\\",
+        "outputPath": "D:\\Assessment  Code\\Cymax\\Cymax.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bamirnejad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Behrooz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -14,7 +14,7 @@ public class XmlModelBinder : IModelBinder
             throw new ArgumentNullException(nameof(bindingContext));
         string xmlValue = string.Empty;
         var sr = new StreamReader(bindingContext.HttpContext.Request.Body);
-            xmlValue = await sr.ReadToEndAsync();
+        xmlValue = await sr.ReadToEndAsync();
 
         XDocument xdoc = new XDocument();
         xdoc = XDocument.Parse(xmlValue);
@@ -25,6 +25,8 @@ public class XmlModelBinder : IModelBinder
             Destination = xdoc.Root.Element("destination").Value
         };
 
+        var valueProxy = bindingContext.ValueProvider.GetValue(bindingContext.ModelName);
+        string n = valueProxy.FirstValue;
 
         var list = new List<int>();
 
@@ -41,5 +43,5 @@ public class XmlModelBinder : IModelBinder
         //return bindingContext;
     }
 
-   
+
 }

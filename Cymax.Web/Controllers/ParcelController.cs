@@ -54,7 +54,7 @@ namespace Cymax.Web.Controllers
         {
             var inputModel = _mapper.Map<ParcelInputModel>(xmlRequest);
 
-            JsonSerializer.Serialize()
+            //JsonSerializer.Serialize();
             return Ok(await _parcelBusinessService.GetLowerstPrice(inputModel));
         }
 

@@ -7,6 +7,8 @@ using Cymax.Web.DTOs.ParcelBusinessModels;
 using Cymax.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.MSBuild;
+using System.Reflection;
 using System.Text.Json;
 
 namespace Cymax.Web.Controllers
@@ -18,12 +20,15 @@ namespace Cymax.Web.Controllers
     {
         private readonly IParcelBusinessContract _parcelBusinessService;
         private readonly IMapper _mapper;
+        private readonly ILogger<ParcelController> _logger;
 
-        public ParcelController(IParcelBusinessContract parcelBusinessContract, 
-                                IMapper mapper)
+        public ParcelController(IParcelBusinessContract parcelBusinessContract,
+                                IMapper mapper,
+                                ILogger<ParcelController> logger)
         {
             this._parcelBusinessService = parcelBusinessContract;
             this._mapper = mapper;
+            this._logger = logger;
         }
 
         [HttpPost]
@@ -44,7 +49,7 @@ namespace Cymax.Web.Controllers
         {
             var inputModel = _mapper.Map<ParcelInputModel>(requestModel);
 
-            return Ok(await _parcelBusinessService.GetLowerstPrice(inputModel));
+            return Ok( await _parcelBusinessService.GetLowerstPrice(inputModel));
         }
 
         [HttpPost]
@@ -56,6 +61,74 @@ namespace Cymax.Web.Controllers
 
             //JsonSerializer.Serialize();
             return Ok(await _parcelBusinessService.GetLowerstPrice(inputModel));
+        }
+
+        [HttpGet]
+        [Route("GetAssembelies")]
+        public IActionResult GetAssembly()
+        {
+            //var assemList = AppDomain.CurrentDomain.GetAssemblies()
+            //                                   //.Where(x => x.FullName.Contains("Cymax.Domain"))
+            //                                   .ToList();
+            //
+            //assemList.ForEach(assem =>
+            //{
+            //    _logger.LogError("-->", assem.FullName ?? "Can not convertName");
+            //});
+
+            var assemList = Assembly.Load("Cymax.Domain")
+                                              .GetTypes()
+                                              .ToList();
+            return Ok(assemList);
+        }
+
+
+        [HttpGet]
+        [Route("GetAssembelyes")]
+        public IActionResult GetAssemblyes()
+        {
+            var entry = Assembly.GetEntryAssembly();
+
+            var assemList = entry
+               // This will get B and C with type: `AssemblyName`
+               .GetReferencedAssemblies()
+               // Load assembly B and C.
+               .Select(t => Assembly.Load(t))
+               // Get all class in B and C.
+               .SelectMany(t => t.GetTypes())
+               .Where(x => x.FullName.Contains("Cymax"))
+               .ToList();
+
+            var assemLists = Assembly.GetEntryAssembly()
+                                                   //.Where(x => x.FullName.Contains("Cymanx"))
+                                                   .GetReferencedAssemblies()
+                                                   .ToList();
+
+            string path = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).FullName);
+
+
+            //assemList.ForEach(assem =>
+            //{
+            //    try
+            //    {
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //
+            //        throw;
+            //    }
+            //});
+
+
+            //var workspace = MSBuildWorkspace.Create();
+            //var solution = workspace.OpenSolutionAsync(path).Result;
+            //var projects = solution.Projects;
+            //foreach (var project in projects)
+            //{
+            //    _logger.LogError("==>", project.Name);
+            //}
+
+            return Ok(assemList);
         }
 
 

@@ -1,0 +1,12 @@
+D:\Assessment  Code\Cymax\Cymax.Domain\bin\Debug\net6.0\Cymax.Domain.deps.json
+D:\Assessment  Code\Cymax\Cymax.Domain\bin\Debug\net6.0\Cymax.Domain.dll
+D:\Assessment  Code\Cymax\Cymax.Domain\bin\Debug\net6.0\Cymax.Domain.pdb
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.csproj.AssemblyReference.cache
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.AssemblyInfoInputs.cache
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.AssemblyInfo.cs
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.csproj.CoreCompileInputs.cache
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.dll
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\refint\Cymax.Domain.dll
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\Cymax.Domain.pdb
+D:\Assessment  Code\Cymax\Cymax.Domain\obj\Debug\net6.0\ref\Cymax.Domain.dll

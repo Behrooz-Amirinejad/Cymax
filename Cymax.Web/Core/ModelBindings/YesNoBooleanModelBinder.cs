@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Primitives;
 
 namespace Cymax.Web.Core.ModelBindings;
 
@@ -6,6 +7,11 @@ public class YesNoBooleanModelBinder : IModelBinder
 {
     public  async Task BindModelAsync(ModelBindingContext bindingContext)
     {
+        if (bindingContext.HttpContext.Request.Headers.ContainsKey("ApplicationHeader"))
+        {
+            string header = bindingContext.HttpContext.Request.Headers["ApplicationHeader"].ToString();
+        }
+
         if (bindingContext == null)
         {
             throw new ArgumentNullException(nameof(bindingContext));
@@ -13,7 +19,7 @@ public class YesNoBooleanModelBinder : IModelBinder
 
         string body = string.Empty;
         var sr = new StreamReader(bindingContext.HttpContext.Request.Body);
-        body = await  sr.ReadToEndAsync();
+        body = (await  sr.ReadToEndAsync()).Trim();
 
 
         var modelName = bindingContext.ModelName;

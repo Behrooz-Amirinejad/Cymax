@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Primitives;
 using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions.Interfaces;
 using System;
@@ -76,7 +79,7 @@ namespace Cymax.Test
         private ModelBindingContext BuildBindingContexts(string modelValue)
 
         {
-            
+
 
 
             //var httpContext = new DefaultHttpContext();
@@ -86,7 +89,17 @@ namespace Cymax.Test
             //var bindingContext = new DefaultModelBindingContext();
             //.HttpContext = httpContext;
 
-            var requestData = Encoding.UTF8.GetBytes("Hello this is the Test body");
+            string body = @"<xml>
+                    	    <source>Toronto</source>
+                    	    <destination>Montreal</destination>
+                    	    <packages>
+                    	    	<p>1</p>
+                    	    	<p>22</p>
+                    	    	<p>30</p>
+                    	    </packages>
+                        </xml>";
+
+            var requestData = Encoding.UTF8.GetBytes(body);
             var stream = new MemoryStream(requestData);
             var requestFake = new HttpRequestFeature();
             requestFake.Body = stream;
@@ -95,6 +108,7 @@ namespace Cymax.Test
             var features = new FeatureCollection();
             features.Set<IHttpRequestFeature>(requestFake);
             var fakeHttpContext = new DefaultHttpContext(features);
+            fakeHttpContext.Request.Headers.Add("ApplicationHeader", "Values");
             var bindingContexts = new DefaultModelBindingContext
             {
                 ModelName = "CustomQueryExpr",
@@ -111,5 +125,28 @@ namespace Cymax.Test
             return bindingContexts;
 
         }
+
+        private void Test_Header()
+
+        {
+            //var actionFilter = new AddDebugInfoToResponse();
+            var requiredHeader = "Test";
+            //var actionFilter = new RequireCustomHeader(requiredHeader);
+
+            var httpContext = new DefaultHttpContext();
+            httpContext.Request.Headers.Add("headerValue", "Value");
+            var actionContext = new ActionContext(httpContext,
+                new RouteData(),
+                new ActionDescriptor(),
+                new ModelStateDictionary());
+            var actionExecutingContext = new ActionExecutingContext(actionContext,
+                new List<IFilterMetadata>(),
+                new Dictionary<string, object>(),
+                controller: null);
+
+            //act
+            //actionFilter.OnActionExecuting(actionExecutingContext);
+        }
+
     }
 }
